@@ -60,11 +60,11 @@ func TestAcmeConnectionLetsencryptStaging(t *testing.T) {
 	// because we aren't running as root and can't bind a listener to port 80 and 443
 	// (used later when we attempt to pass challenges). Keep in mind that you still
 	// need to proxy challenge traffic to port 5002 and 5001.
-	err = client.Challenge.SetHTTP01Provider(http01.NewProviderServer("", "5002"))
+	err = client.Challenge.SetHTTP01Provider(http01.NewProviderServer("", "80"))
 	if err != nil {
 		t.Errorf("unable to set HTTP provider, cause: %v", err)
 	}
-	err = client.Challenge.SetTLSALPN01Provider(tlsalpn01.NewProviderServer("", "5001"))
+	err = client.Challenge.SetTLSALPN01Provider(tlsalpn01.NewProviderServer("", "443"))
 	if err != nil {
 		t.Errorf("unable to set TLS ALPN provider, cause: %v", err)
 	}
