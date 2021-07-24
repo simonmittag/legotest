@@ -9,7 +9,6 @@ import (
 	"github.com/go-acme/lego/v4/certcrypto"
 	"github.com/go-acme/lego/v4/certificate"
 	"github.com/go-acme/lego/v4/challenge/http01"
-	"github.com/go-acme/lego/v4/challenge/tlsalpn01"
 	"github.com/go-acme/lego/v4/lego"
 	"github.com/go-acme/lego/v4/registration"
 	"testing"
@@ -64,10 +63,10 @@ func TestAcmeConnectionLetsencryptStaging(t *testing.T) {
 	if err != nil {
 		t.Errorf("unable to set HTTP provider, cause: %v", err)
 	}
-	err = client.Challenge.SetTLSALPN01Provider(tlsalpn01.NewProviderServer("", "443"))
-	if err != nil {
-		t.Errorf("unable to set TLS ALPN provider, cause: %v", err)
-	}
+	//err = client.Challenge.SetTLSALPN01Provider(tlsalpn01.NewProviderServer("", "443"))
+	//if err != nil {
+	//	t.Errorf("unable to set TLS ALPN provider, cause: %v", err)
+	//}
 
 	// New users will need to register
 	reg, err := client.Registration.Register(registration.RegisterOptions{TermsOfServiceAgreed: true})
