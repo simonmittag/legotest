@@ -86,9 +86,12 @@ func TestAcmeConnectionLetsencryptStaging(t *testing.T) {
 		t.Errorf("unable to obtain certificate, cause %v", err)
 	}
 
+
 	// Each certificate comes back with the cert bytes, the bytes of the client's
 	// private key, and a certificate URL. SAVE THESE TO DISK.
-	fmt.Printf("%#v\n", certificates)
+	fmt.Printf("key: %v\n", certificates.PrivateKey)
+
+	fmt.Printf("cert: %v\n", certificates.Certificate)
 
 	// ... all done.
 }
