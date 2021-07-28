@@ -89,9 +89,9 @@ func TestAcmeConnectionLetsencryptStaging(t *testing.T) {
 
 	// Each certificate comes back with the cert bytes, the bytes of the client's
 	// private key, and a certificate URL. SAVE THESE TO DISK.
-	fmt.Printf("key: %v\n", certificates.PrivateKey)
+	fmt.Printf("key: %v\n", string(certificates.PrivateKey))
 
-	fmt.Printf("cert: %v\n", certificates.Certificate)
+	fmt.Printf("cert: %v\n", string(certificates.Certificate))
 
 	// ... all done.
 }
